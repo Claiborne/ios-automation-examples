@@ -1,6 +1,5 @@
 try {
 UIALogger.logStart("Testing resilts lists for 'coffee'");
-
 var target = UIATarget.localTarget();
 var app = target.frontMostApp();
 var window = app.mainWindow();

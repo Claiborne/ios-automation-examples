@@ -1,3 +1,5 @@
+try {
+UIALogger.logStart("Remove 'coffee' cell");
 var target = UIATarget.localTarget();
 var app = target.frontMostApp();
 var window = app.mainWindow();
@@ -23,10 +25,16 @@ coffeeCell.waitForInvalid();
 target.popTimeout();
 
 if (coffeeCell.isValid()) {
-    UIALogger.logError("Oops. Cell is still there!");
-} else {
-    UIALogger.logMessage("Cell is gone, we're all set!");
+	throw new Error("Cell not removed")
 }
 
 UIALogger.logMessage("Turn off edit mode");
 editButton.tap();
+
+UIALogger.logPass("Test complete");
+} catch(exception) {
+	UIALogger.logError(exception.message);
+	UIATarget.localTarget().logElementTree();
+	UIALogger.logFail("Test failed");
+	throw exception;
+}
