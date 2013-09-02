@@ -41,10 +41,7 @@ function assertNotEqual(value1, value2, failMsg) {
 }
 
 // Import screen files into our test environment
-#import "lib/screens/Screen.js";
-#import "lib/screens/SearchTermScreen.js";
-#import "lib/screens/ResultsScreen.js";
-#import "lib/screens/ResultsListScreen.js";
-
-/* Instruments uses 4-wide tab stops. */
-/* vim: set shiftwidth=4 softtabstop=4 expandtab: */
+#import "lib/screens/screen.js";
+#import "lib/screens/search_term_screen.js";
+#import "lib/screens/results_screen.js";
+#import "lib/screens/results_lists_screen.js";
