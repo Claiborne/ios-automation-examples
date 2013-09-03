@@ -44,7 +44,7 @@ var SearchTermScreen = {
 
     assertNoTerm: function(name) {
         log("Assert no term named", name);
-        this.target().pushTimeout(0.1);
+        this.target().pushTimeout(0.1); //query below has it's own, long timeout, so overwrite
         var tableView = this.window().tableViews()[0];
         var cell = tableView.cells()[name];
         this.target().popTimeout();

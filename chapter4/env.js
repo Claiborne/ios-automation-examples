@@ -40,8 +40,19 @@ function assertNotEqual(value1, value2, failMsg) {
     assert(false, fullMsg);
 }
 
+function delay(seconds) {
+	UIATarget.localTarget().delay(seconds);
+}
+
+// We'll handle all alerts syncronously, so return true to tell
+// the system we'll take care of it
+UIATarget.onAlert = function() { return true; };
+
 // Import screen files into our test environment
 #import "lib/screens/screen.js";
 #import "lib/screens/search_term_screen.js";
 #import "lib/screens/results_screen.js";
 #import "lib/screens/results_lists_screen.js";
+#import "lib/screens/results_map_screen.js";
+#import "lib/screens/alert_screen.js";
+
