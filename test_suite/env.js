@@ -55,4 +55,5 @@ UIATarget.onAlert = function() { return true; };
 #import "lib/screens/results_lists_screen.js";
 #import "lib/screens/results_map_screen.js";
 #import "lib/screens/alert_screen.js";
-
+// Import application helper
+#import "lib/app.js";
