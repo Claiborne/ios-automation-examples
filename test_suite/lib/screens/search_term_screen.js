@@ -20,8 +20,7 @@ var SearchTermScreen = {
         var editButton = this.navigationBar().leftButton();
         editButton.tap();
 
-        var tableView = this.window().tableViews()[0];
-        var cell = tableView.cells()[name];
+        var cell = this.tableView().cells()[name];
 
         var deleteSwitch = cell.switches()[0];
         deleteSwitch.tap();
@@ -36,7 +35,7 @@ var SearchTermScreen = {
 
     assertTerm: function(index, name) {
         log("Checking for", name, "at index", index);
-        var cell = this.window().tableViews()[0].cells()[index];
+        var cell = this.tableView().cells()[index];
         assertEqual(cell.name(), name);
     },
 
@@ -45,8 +44,7 @@ var SearchTermScreen = {
     assertNoTerm: function(name) {
         log("Assert no term named", name);
         this.target().pushTimeout(0.1); //query below has it's own, long timeout, so overwrite
-        var tableView = this.window().tableViews()[0];
-        var cell = tableView.cells()[name];
+        var cell = this.tableView().cells()[name];
         this.target().popTimeout();
         assert(!cell.isValid(), "Cell still there");
     },
@@ -54,9 +52,28 @@ var SearchTermScreen = {
     // ...
 
     tapTerm: function(name) {
-        var tableView = this.window().tableViews()[0];
-        tableView.cells()[name].tap();
-    }
+        this.tableView().cells()[name].tap();
+    },
+	
+	// I like the below better
+	navigationBar: function() {
+		if (App.isOniPad() && App.isPortrait()) {
+			return this.window().popover().navigationBar();
+		} else {
+			return this.__proto__.navigationBar();
+		}
+	},
+	
+	// I like this better than the above
+	tableView: function() {
+		var root;
+		if (App.isOniPad() && App.isPortrait()) {
+			root = this.window().popover();
+		} else {
+			root = this.window();
+		}
+		return root.tableViews()[0];
+	}
 
 };
 

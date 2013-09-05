@@ -12,3 +12,12 @@ test("Removing and replacing search term in landscape", function() {
 	s.addTerm("coffee");
 	s.assertTerm(0, "coffee");
 });
+
+test("Removing and replacing search term in portrait", function() {
+	App.rotatePortrait();
+	var s = SearchTermScreen;
+	s.removeTerm("coffee");
+	s.assertNoTerm("coffee");
+	s.addTerm("coffee");
+	s.assertTerm(0, "coffee");
+});

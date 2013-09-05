@@ -24,7 +24,7 @@ test("Searching for 'coffee' near by me", function() {
 
 test("Searching for 'coffee' on the map near by me", function() {
 	SearchTermScreen.tapTerm('coffee');
-	ResultsMapScreen.assertPinNamed("Starbucks Coffee");
+	ResultsMapScreen.assertPinNamed("POI: Starbucks Coffee");
 	ResultsScreen.goBack();
 });
 
