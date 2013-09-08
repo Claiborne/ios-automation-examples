@@ -6,3 +6,10 @@ Further research instruments with Automation
 
 UI Auto Monkey: https://github.com/jonathanpenn/ui-auto-monkey
 
+Product > Scheme > Edit Scheme to set default location coordinates
+Or change dynamiclally during tests:
+UIATarget.localTarget().setLocation({
+	latitude: xx.xx,
+	longitude: -xx.xx
+});
+Or with speed used setLocationWithOptions
