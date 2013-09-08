@@ -1,0 +1,8 @@
+Library > Allocations > File > Save Template As
+Allocations:
+IGN's app peaked at 22MB of 'Live Bytes'
+
+Further research instruments with Automation
+
+UI Auto Monkey: https://github.com/jonathanpenn/ui-auto-monkey
+
